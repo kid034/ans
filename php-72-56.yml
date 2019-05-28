@@ -10,9 +10,3 @@
         force: yes
       sudo: yes
 
-    - name: remove php7.2
-      apt:
-        name: php7.2
-        state: absent
-        autoremove: yes
-      sudo: yes

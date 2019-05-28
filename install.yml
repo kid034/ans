@@ -74,5 +74,5 @@
 #      sudo: yes
 
     - name: install php5.6
-      shell: apt-get install -y --force-yes php5.6
+      apt: name=php5.6 state=force
       sudo: yes
