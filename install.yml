@@ -46,7 +46,7 @@
 #        state: restarted
 
     - name: restart apache
-      shell: service apache2 restart
+      service: name=apache2 state=restarted
       sudo: yes
 
     - name: create index.php
