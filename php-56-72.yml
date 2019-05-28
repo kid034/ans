@@ -1,0 +1,18 @@
+# web.yml
+---
+- hosts: deb
+  user: vagrant
+
+  tasks:
+    - name: remove php5.6
+      apt:
+        name: php5.6
+        state: absent
+      sudo: yes
+
+    - name: install php7.2
+      apt:
+        name: php7.2
+        force: yes
+      sudo: yes
+
