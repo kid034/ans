@@ -1,0 +1,78 @@
+# web.yml
+---
+- hosts: deb
+  user: vagrant
+
+  tasks:
+    - name: Update apt cache
+      apt: update_cache=yes
+      sudo: yes
+
+    - name: Install git
+      apt: name=git
+      sudo: yes
+
+    - name: Install vim
+      apt: name=vim
+      sudo: yes
+
+    - name: Install wget
+      apt: name=wget
+      sudo: yes
+
+    - name: Install htop
+      apt: name=htop
+      sudo: yes
+
+    - name: Install tmux
+      apt: name=tmux
+      sudo: yes
+
+    - name: Install nginx
+      apt: name=nginx
+      sudo: yes
+
+    - name: Install apache
+      apt: name=apache2
+      sudo: yes
+
+    - name: change apache listen port
+      shell: sed -i 's/Listen 80/Listen 8888/g' /etc/apache2/ports.conf
+      sudo: yes
+
+#    - name: restart apache
+#      service: 
+#        name: apache2
+#        state: restarted
+
+    - name: restart apache
+      shell: service apache2 restart
+      sudo: yes
+
+    - name: create index.php
+      shell: echo "<?php echo 'Hello World!'; phpinfo(); ?>" > /var/www/html/index.php
+      sudo: yes
+
+    - name: Install ca-certificates
+      apt: name=ca-certificates
+      sudo: yes
+
+    - name: Install apt-transport-https 
+      apt: name=apt-transport-https 
+      sudo: yes
+
+    - name: add repository for php
+      shell: echo "deb https://packages.sury.org/php/ jessie main" >> /etc/apt/sources.list
+      sudo: yes
+
+    - name: Update apt cache
+      apt: update_cache=yes
+      sudo: yes
+
+#    - name: install php5.6
+#      apt: name=php5.6
+#      sudo: yes
+
+    - name: install php5.6
+      shell: apt-get install -y --force-yes php5.6
+      sudo: yes
