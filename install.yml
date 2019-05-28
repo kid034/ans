@@ -64,10 +64,6 @@
       apt: update_cache=yes
       sudo: yes
 
-#    - name: install php5.6
-#      apt: name=php5.6
-#      sudo: yes
-
     - name: install php5.6
-      apt: name=php5.6 state=force
+      apt: name=php5.6 force=yes
       sudo: yes
