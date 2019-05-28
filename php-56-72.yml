@@ -12,6 +12,7 @@
 
     - name: remove php5.6 configs
         apt:
+          name: php5.6
           autoremove: yes
         sudo: yes
 
