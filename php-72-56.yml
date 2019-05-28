@@ -4,9 +4,18 @@
   user: vagrant
 
   tasks:
+    - name: remove php7.2
+      apt:
+        name: php7.2
+        force: yes
+      sudo: yes
+
+    - name: remove php7.2 configs
+      shell: apt-get autoremove -y
+      sudo: yes
+
     - name: install php5.6
       apt:
         name: php5.6
         force: yes
       sudo: yes
-
