@@ -15,5 +15,6 @@
       apt:
         name: php7.2
         force: yes
+        state: build-dep
       sudo: yes
 

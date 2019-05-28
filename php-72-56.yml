@@ -16,9 +16,3 @@
         state: absent
         autoremove: yes
       sudo: yes
-
-#    - name: remove php7.2 configs
-#      apt: 
-#        autoremove: yes
-
-
