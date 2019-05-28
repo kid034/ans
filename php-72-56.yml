@@ -7,7 +7,7 @@
     - name: remove php7.2
       apt:
         name: php7.2
-        force: yes
+        state: absent
       sudo: yes
 
     - name: remove php7.2 configs
