@@ -1,0 +1,23 @@
+# web.yml
+---
+- hosts: deb
+  user: vagrant
+
+  tasks:
+    - name: install php7.2
+      apt:
+        name: php7.2
+        force: yes
+      sudo: yes
+
+    - name: disable php5.6 mod
+      shell: a2dismod php5.6
+      sudo: yes
+
+    - name: enable php7.2 mod
+      shell: a2enmod php7.2
+      sudo: yes
+
+    - name: apache restart
+      service: name=apache2 state=restarted
+      sudo: yes
