@@ -8,6 +8,7 @@
       apt:
         name: php5.6
         state: absent
+        purge: yes
       sudo: yes
 
     - name: install php7.2
