@@ -8,8 +8,12 @@
       apt:
         name: php5.6
         state: absent
-        autoremove: yes
       sudo: yes
+
+    - name: remove php5.6 configs
+        apt:
+          autoremove: yes
+        sudo: yes
 
     - name: install php7.2
       apt:
